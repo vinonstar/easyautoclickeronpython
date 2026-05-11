@@ -5,14 +5,7 @@ from threading import Thread
 
 class AutoClicker:
     def __init__(self, interval=0.1, button=Button.left, start_stop_key=KeyCode(char='s')):
-        """
-        Initialize the auto clicker.
-        
-        Args:
-            interval: Time in seconds between clicks (default: 0.1)
-            button: Mouse button to click (default: left button)
-            start_stop_key: Keyboard key to toggle clicking (default: 's')
-        """
+
         self.interval = interval
         self.button = button
         self.start_stop_key = start_stop_key
@@ -32,10 +25,10 @@ class AutoClicker:
                 self.mouse.click(self.button)
                 time.sleep(self.interval)
             else:
-                time.sleep(0.01)  # Small sleep to prevent CPU spinning
+                time.sleep(0.01)  # Small sleep to prevent CPU
     
     def on_press(self, key):
-        """Handle keyboard press events."""
+
         try:
             if key == self.start_stop_key:
                 self.toggle_clicking()
@@ -46,7 +39,7 @@ class AutoClicker:
             pass
     
     def start(self):
-        """Start the auto clicker."""
+
         print("=" * 50)
         print("AUTO CLICKER STARTED")
         print("=" * 50)
